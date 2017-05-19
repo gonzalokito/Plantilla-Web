@@ -15,24 +15,20 @@ if (isset($_GET["pagina"])) {
 			 //Si la petición desde la paginación es la página uno
 			 //en lugar de ir a 'index.php?pagina=1' se iría directamente a 'index.php'
 			 if ($_GET["pagina"] == 1) {
-				 header("Location: PropuestasBuscEtq.php?search=".$_GET["search"]."");
+				 header("Location: Debates.php");
 				 die();
 			 } else { //Si la petición desde la paginación no es para ir a la pagina 1, va a la que sea
 				 $pagina = $_GET["pagina"];
-				 $search = $_GET["search"];
 			};
 
 		 } else { //Si la string no es numérica, redirige al index (por ejemplo: index.php?pagina=AAA)
-			 header("Location: PropuestasBuscEtq.php?search=".$_GET["search"]."");
+			 header("Location: Debates.php");
 			die();
 		 };
 	};
 
 } else { //Si el GET de HTTP no está seteado, lleva a la primera página (puede ser cambiado al index.php o lo que sea)
 	$pagina = 1;
-	if (isset($_GET["search"])) {
-	$search = $_GET["search"];}
-	else{$search = $_POST['search'];}
 };
 
 //Define el número 0 para empezar a paginar multiplicado por la cantidad de resultados por página
@@ -44,7 +40,7 @@ $empezar_desde = ($pagina-1) * $cantidad_resultados_por_pagina;
     
 
 
-    <title>Proposals</title>
+    <title>Questions</title>
     <link rel="stylesheet" media="screen" href="./css/application-53523c481b0762fedc07b8a19a71a8c4f5c06ebe0617a04e0a8b14e6861d4d2b.css">
     <link rel="shortcut icon" type="image/x-icon" href="./css/icono.bmp">
 
@@ -100,7 +96,7 @@ $empezar_desde = ($pagina-1) * $cantidad_resultados_por_pagina;
               <div class="small-12 medium-9 column">
   <ul>
       <li>
-        <a accesskey="d" style="color:black" href="./Debates.php">Questions</a>
+        <a accesskey="d" style="color:blue" href="./Debates.php">Questions</a>
       </li>
     <li>
       <a accesskey="p" style="color:black" href="./PropuestasCiudadanas.php">Proposals</a>
@@ -127,7 +123,7 @@ $empezar_desde = ($pagina-1) * $cantidad_resultados_por_pagina;
         <div class="small-12 medium-9 column">
   <ul>
       <li>
-        <a accesskey="d" style="color:black" href="./Debates.php">Questions</a>
+        <a accesskey="d" style="color:blue" href="./Debates.php">Questions</a>
       </li>
     <li>
       <a accesskey="p" style="color:black" href="./PropuestasCiudadanas.php">Proposals</a>
@@ -140,10 +136,10 @@ $empezar_desde = ($pagina-1) * $cantidad_resultados_por_pagina;
 
         <div class="small-12 medium-3 column">
             <div id="search_form" class="search-form-header">
-  <form action="./PropuestasBuscEtq.php" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓">
+  <form action="./QuestBusc.php" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓">
     <div class="input-group">
       <label class="sr-only">Search</label>
-      <input type="text" name="search" placeholder="Search Proposals..." class="input-group-field" value="">
+      <input type="text" name="search" placeholder="Search Questions..." class="input-group-field" value="">
       <div class="input-group-button">
         <button type="submit" class="button" title="Buscar">
           <span class="sr-only">Search</span>
@@ -167,12 +163,19 @@ $empezar_desde = ($pagina-1) * $cantidad_resultados_por_pagina;
 
       <div class="small-12 search-results">
       </div>
+
+
+      <section class="submenu">
+    <a class="active" href="./Debates.php">Most Response</a>
+    <a class="" href="./DebatesTopOld.php">Old Questions</a>
+    <a class="" href="./DebatesTopNew.php">News Questions</a>
+</section>
       
   <div id="proposals-list">
-  <?php include("php/comvot.php");?>
   <?php
 //Obtiene TODO de la tabla
-$obtener_todo_BD = "SELECT * FROM propuestas WHERE Etiqueta = $search";
+$obtener_todo_BD = "SELECT * FROM preguntas";
+
 //Realiza la consulta
 $consulta_todo = mysql_query($obtener_todo_BD);
 
@@ -186,18 +189,20 @@ $total_paginas = ceil($total_registros / $cantidad_resultados_por_pagina);
 //Realiza la consulta en el orden de ID ascendente (cambiar "id" por, por ejemplo, "nombre" o "edad", alfabéticamente, etc.)
 //Limitada por la cantidad de cantidad por página
 $consulta_resultados = mysql_query("
-SELECT Id_Unico,Titulo_Propuesta,Cuerpo_Propuesta,N_Comentarios,Propietario,N_Propuesta,Votos,Etiqueta,Idioma,Fecha_Creacion 
-FROM propuestas WHERE Etiqueta = $search ORDER BY N_Comentarios DESC
+SELECT Id_Pregunta,Cuerpo_Pregunta,Idioma,N_Respuestas,Fecha_Creacion
+FROM preguntas ORDER BY N_Respuestas DESC
 LIMIT $empezar_desde, $cantidad_resultados_por_pagina");
 
 //Crea un bluce 'while' y define a la variable 'datos' ($datos) como clave del array
 //que mostrará los resultados por nombre
-Echo "<div style=background-color:green;color:white> You find $total_registros proposals with Tag '$search'. </div>";
 
 ?>
 <?php while($datos = mysql_fetch_array($consulta_resultados)){
-	$variable1=$datos['Propietario'];
-	$variable2=$datos['N_Propuesta'];?>
+	$variable1=$datos['Cuerpo_Pregunta'];
+	$variable2=$datos['Id_Pregunta'];
+	$variable3=$datos['Idioma'];
+	$variable4=$datos['Fecha_Creacion'];
+	$variable5=$datos['N_Respuestas'];?>
 <div id="proposal_13745" class="proposal clear " data-type="proposal">
   <div class="panel">
     <div class="icon-successfull"></div>
@@ -205,61 +210,42 @@ Echo "<div style=background-color:green;color:white> You find $total_registros p
 
       <div class="small-12 medium-9 column">
         <div class="proposal-content">
-            <span class="label-proposal float-left">Proposal <?php echo $datos['Id_Unico'] ?></span>
-            <h3><a href="./VerProp.php?variable1=<?php echo $variable1 ?>&variable2=<?php echo $variable2 ?>"><?php echo $datos['Titulo_Propuesta'] ?></a></h3>
-            <p class="proposal-info">
+            <span class="label-proposal float-left">Question <?php echo $variable2 ?></span>
+            <br>
+			<p class="proposal-info">
              
-              <span>Comments: <?php echo $datos['N_Comentarios'] ?></span>
+              <span>Responses: <?php echo $variable5; ?></span>
 
               <span class="bullet">&nbsp;•&nbsp;</span>
-              <?php echo $datos['Fecha_Creacion']; ?>
+              <?php echo $variable4; ?>
 
-                <span class="bullet">&nbsp;•&nbsp;</span>
-                <span class="author">
-                  <?php echo $datos['Propietario'] ?>
-                </span>
 				<span class="bullet">&nbsp;•&nbsp;</span>
                 <span class="idioma">
 				
-                  Lenguage: <?php echo $datos['Idioma'] ?>
+                  Lenguage: <?php echo $variable3; ?>
                 </span>
 
             </p>
+			</span>
+			<br>
             <div class="proposal-description">
-              <p><?php echo $datos['Cuerpo_Propuesta'] ?></p>
+              <p><?php echo $variable1 ?></p>
               <div class="truncate"></div>
             </div>
           
-  <span id="tags" class="tags">
-      <a href="./PropuestasBuscEtq.php?search='<?php echo $datos['Etiqueta']?>'"><?php echo $datos['Etiqueta'] ?></a>
-	  
-
-  </span>
-
         </div>
       </div>
 
       <div id="proposal_13745_votes" class="small-12 medium-3 column">
           <div class="text-center">
             <div class="supports">
-
-    <span class="total-supports">
-      <?php echo $datos['Votos'];?> Votes
-    </span>
-
-  <form class="in-favor" method="post" <?php if ($_SESSION['login']==0){ echo 'style="display:none;"'; } ?>>
-
-        <input type="hidden" name="Votar_Usuario1" value=<?php echo $datos['Propietario'];?>>
-		<input type="hidden" name="Votar_Usuario2" value=<?php echo $datos['N_Propuesta'];?>>
-		<input type="hidden" name="Votar_Usuario3" value=<?php echo $datos['Votos'];?>>
-		<input class="button button-support small expanded" title="Apoyar esta propuesta" value= "Vote" type="submit" name="comvot">
-</input>  </form>
-  <div class="in-favor">
+  <div  class="in-favor">
   <span class="total-supports">
-      <?php echo $datos['N_Comentarios'];?> Comments
+      <?php echo $variable5;?> Responses
     </span>
-      <a <?php if ($_SESSION['login']==0){ echo 'style="display:none;"'; } ?> class="button button-support small expanded" title="Comentar esta propuesta" data-remote="true" href="./VerProp.php?variable1=<?php echo $variable1 ?>&variable2=<?php echo $variable2 ?>">
-	  Comment
+      <a class="button button-support small expanded" title="Responder esta pregunta" data-remote="true" href="./VerPreg.php?variable1=<?php echo $variable1 ?>&variable2=<?php echo $variable2 ?>">
+	  Respond/<br>
+	  See Comments
 </a> 
 </div>
 
@@ -272,7 +258,6 @@ Echo "<div style=background-color:green;color:white> You find $total_registros p
 </div>
 <?php
 };
-if ($total_registros==0){echo "<h>Please, Try another Words</h>";}
 ?>
 
 <div class="pagination-centered">
@@ -287,9 +272,9 @@ $aux=$pagina-1;
 $aux2=$pagina+1; 
 
 echo "<li style='list-style:none;text-align: center;' center;=''>";
-if ($pagina<>1){ echo "<a rel=next href='?pagina=".$aux."&search=".$search."'> $aux <--Prev.Pag </a>";}
+if ($pagina<>1){ echo "<a rel=next href='?pagina=".$aux."'> $aux <--Prev.Pag </a>";}
 echo "||";
-if ($pagina<>$total_paginas){echo "<a rel=next href='?pagina=".$aux2."&search=".$search."'> Next.Pag--> $aux2 </a>";}
+if ($pagina<>$total_paginas){echo "<a rel=next href='?pagina=".$aux2."'> Next.Pag--> $aux2 </a>";}
 echo "</li>";
 } ?>
     </nav>
@@ -298,42 +283,16 @@ echo "</li>";
       </div>
     </div>
 
-    <div <?php $sql = 'SELECT etiqueta,COUNT(*) AS CNT FROM propuestas GROUP BY 1 ORDER BY CNT DESC LIMIT 10'; 
-        $rec = mysql_query($sql);
-		$n = 0;
-        if (!$rec) {
-            die('No se pudo consultar:' . mysql_error());
-		}			
-		else {
-			while($result = mysql_fetch_object($rec)) 
-        { 
-			$etiquetatop[$n] = $result->etiqueta;
-            $n++;
-		}
-		}?>class="small-12 medium-3 column">
+    <div class="small-12 medium-3 column">
       <aside class="margin-bottom">
-        <a <?php if ($_SESSION['login']==0){ echo 'style="display:none;"'; } ?> class="button expanded" href="./CrearProp.php">Create new proposal</a>
+        <a class="button expanded" href="./CrearQuest.php">New Question</a>
             <div id="tag-cloud" class="tag-cloud">
   <div class="sidebar-divider"></div>
-  <h3 class="sidebar-title">Tags</h3>
+  <h3 class="sidebar-title">Instruccions</h3>
   <br>
-<?php $cont1=0; while ($cont1<sizeof($etiquetatop)){?>
-<a href="./PropuestasBuscEtq.php?search='<?php echo $etiquetatop[$cont1]?>'">
-      <span class="tag"><?php echo $etiquetatop[$cont1]?></span>
-</a>
-<?php $cont1++;}?>
-    
-
-
-            <div class="sidebar-divider"></div>
-
-<h3 class="sidebar-title">Top Weekly</h3>
-<p>
-  <a href="./PropTopVot.php">Propuestas más apoyadas</a>
-</p>
-
-          <div class="sidebar-divider"></div>
-
+  <li>Only 250 Characters</li>
+  <li>Public Questions</li>
+  <li>Doubts about light pollution</li>
       </aside>
     </div>
 

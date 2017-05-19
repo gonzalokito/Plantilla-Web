@@ -96,10 +96,10 @@ $empezar_desde = ($pagina-1) * $cantidad_resultados_por_pagina;
               <div class="small-12 medium-9 column">
   <ul>
       <li>
-        <a accesskey="d" style="color:black" href="./Construccion.html">Debates</a>
+        <a accesskey="d" style="color:black" href="./Debates.php">Questions</a>
       </li>
     <li>
-      <a accesskey="p" style="color:black" href="./PropuestasCiudadanas.php">Proposals</a>
+      <a accesskey="p" style="color:blue" href="./PropuestasCiudadanas.php">Proposals</a>
     </li>
     <li>
       <a accesskey="v" style="color:black" href="./PropuestasCiudadanasV.php">Vote</a>
@@ -123,10 +123,10 @@ $empezar_desde = ($pagina-1) * $cantidad_resultados_por_pagina;
         <div class="small-12 medium-9 column">
   <ul>
       <li>
-        <a accesskey="d" style="color:black" href="./Construccion.html">Debates</a>
+        <a accesskey="d" style="color:black" href="./Debates.php">Questions</a>
       </li>
     <li>
-      <a accesskey="p" style="color:black" href="./PropuestasCiudadanas.php">Proposals</a>
+      <a accesskey="p" style="color:blue" href="./PropuestasCiudadanas.php">Proposals</a>
     </li>
     <li>
       <a accesskey="v" style="color:black" href="./PropuestasCiudadanasV.php">Vote</a>

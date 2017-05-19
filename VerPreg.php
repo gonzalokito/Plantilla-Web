@@ -17,14 +17,14 @@ if (isset($_GET["pagina"])) {
 			 //Si la petición desde la paginación es la página uno
 			 //en lugar de ir a 'index.php?pagina=1' se iría directamente a 'index.php'
 			 if ($_GET["pagina"] == 1) {
-				 header("Location: VerProp.php?variable1=".$_GET['variable1']."&variable2=".$_GET['variable2']."");
+				 header("Location: VerPreg.php?variable1=".$_GET['variable1']."&variable2=".$_GET['variable2']."");
 				 die();
 			 } else { //Si la petición desde la paginación no es para ir a la pagina 1, va a la que sea
 				 $pagina = $_GET["pagina"];
 			};
 
 		 } else { //Si la string no es numérica, redirige al index (por ejemplo: index.php?pagina=AAA)
-			 header("Location: VerProp.php?variable1=".$_GET['variable1']."&variable2=".$_GET['variable2']."");
+			 header("Location: VerPreg.php?variable1=".$_GET['variable1']."&variable2=".$_GET['variable2']."");
 			die();
 		 };
 	};
@@ -45,12 +45,11 @@ $empezar_desde = ($pagina-1) * $cantidad_resultados_por_pagina;
     <link rel="apple-touch-icon" type="image/png" href="https://decide.madrid.es/assets/apple-touch-icon-200-6c25d8d55a31c81a0d22a208ac3d981d66bd93911a614a54e1116b8548a22e90.png" sizes="200x200">
     
 <meta class="foundation-mq">
-<?php $Propietario= $_GET['variable1']; $N_Prop= $_GET['variable2'];
+<?php $IdPregunta= $_GET['variable2']; $C_Pregunta= $_GET['variable1'];
 $consulta_resultados = mysql_query("
-SELECT Titulo_Propuesta,Cuerpo_Propuesta,N_Comentarios,Propietario,N_Propuesta,Votos,Etiqueta,Idioma,Confirmacion,Fecha_Creacion 
-FROM propuestas WHERE Propietario='$Propietario' and N_Propuesta=$N_Prop");
+SELECT Id_Pregunta,Cuerpo_Pregunta,Idioma,N_Respuestas,Fecha_Creacion
+FROM preguntas WHERE Id_Pregunta=$IdPregunta");
 $datos = mysql_fetch_array($consulta_resultados);
-$Conf=$datos['Confirmacion'];
 ?></head>
 <header >
 
@@ -101,7 +100,7 @@ $Conf=$datos['Confirmacion'];
               <div class="small-12 medium-9 column">
   <ul>
       <li>
-        <a accesskey="d" style="color:black" href="./Debates.php">Questions</a>
+        <a accesskey="d" style="color:blue" href="./Debates.php">Questions</a>
       </li>
     <li>
       <a accesskey="p" style="color:black" href="./PropuestasCiudadanas.php">Proposals</a>
@@ -128,7 +127,7 @@ $Conf=$datos['Confirmacion'];
         <div class="small-12 medium-9 column">
   <ul>
       <li>
-        <a accesskey="d" style="color:black" href="./Debates.php">Questions</a>
+        <a accesskey="d" style="color:blue" href="./Debates.php">Questions</a>
       </li>
     <li>
       <a accesskey="p" style="color:black" href="./PropuestasCiudadanas.php">Proposals</a>
@@ -157,8 +156,8 @@ $Conf=$datos['Confirmacion'];
       <div class="row auth">
         <main>
           <div class="column small-centered panel padding margin-bottom">
-<div>Title</div>            
-<h2><?php echo $datos['Titulo_Propuesta'];?></h2>
+<div>Id Pregunta</div>            
+<p><?php echo $datos['Id_Pregunta'];?></p>
 
 
 
@@ -167,16 +166,10 @@ $Conf=$datos['Confirmacion'];
   <div class="row" >
     <div class="small-12 column">
 	
-<label>User: <?php echo $datos['Propietario']; ?></label></br>
-      <label for="description">Description</label>
-	  <p><?php echo $datos['Cuerpo_Propuesta']; ?><p>
-	  <label for="etiqueta">Tag</label>
-     
-  <span id="tags" class="tags">
-      <a><?php echo $datos['Etiqueta'] ?></a>
-	  
 
-  </span>
+      <label for="description">Pregunta</label>
+	  <p><?php echo $datos['Cuerpo_Pregunta']; ?><p>
+
   <label for="etiqueta">Lenguage</label> 
      
   <span id="tags" class="tags">
@@ -186,23 +179,14 @@ $Conf=$datos['Confirmacion'];
   </span>
     </div>
   </div>
-  <?php include("php/comvot.php");?>
-    <form class="in-favor" method="post" <?php if ($_SESSION['login']==0){ echo 'style="display:none;"'; } ?>>
-        <p <?php if ($Conf==1){ echo 'style="display:none;"'; } ?>>This proposal is not confirmed. You can't vote it.<p>
-        <input type="hidden" name="Votar_Usuario1" value=<?php echo $datos['Propietario'];?>>
-		<input type="hidden" name="Votar_Usuario2" value=<?php echo $datos['N_Propuesta'];?>>
-		<input type="hidden" name="Votar_Usuario3" value=<?php echo $datos['Votos'];?>>
-		<input <?php if ($_SESSION['login']==0 or $Conf==0){ echo 'style="display:none;"'; } ?> class="button button-support small expanded" title="Support this proposal" value= "Vote" type="submit" name="comvot">
-</input>  </form>
 </form>
 
           </div>
 		  <div class="column small-centered panel padding margin-bottom">
 		  <?php
-include("php/comcom.php");
-$obtener_todo_BD = "SELECT * FROM comentarios 
-WHERE Propietario_Prop='$datos[Propietario]' AND N_Prop=$datos[N_Propuesta] 
-ORDER BY Fecha";
+include("php/respreg.php");
+$obtener_todo_BD = "SELECT * FROM respuestas 
+WHERE Id_Pregunta='$datos[Id_Pregunta]'";
 
 //Realiza la consulta
 $consulta_todo = mysql_query($obtener_todo_BD);
@@ -217,17 +201,17 @@ $total_paginas = ceil($total_registros / $cantidad_resultados_por_pagina);
 //Realiza la consulta en el orden de ID ascendente (cambiar "id" por, por ejemplo, "nombre" o "edad", alfabéticamente, etc.)
 //Limitada por la cantidad de cantidad por página
 $consulta_resultados = mysql_query("
-SELECT * FROM comentarios 
-WHERE Propietario_Prop='$datos[Propietario]' AND N_Prop=$datos[N_Propuesta] 
-ORDER BY Fecha
+SELECT * FROM respuestas 
+WHERE Id_Pregunta='$datos[Id_Pregunta]'
 LIMIT $empezar_desde, $cantidad_resultados_por_pagina");
 ?>
 <?php if ($total_registros==0) {echo "No Comments";}else{echo "Comments";}?>
 <?php while($datos = mysql_fetch_array($consulta_resultados)){
-	$variable1=$datos['Usuario_Comentario'];
-	$variable2=$datos['Comentario'];
-	$variable3=$datos['Ind_Comentario'];?>
+	$variable1=$datos['Id_Pregunta'];
+	$variable2=$datos['Respuesta'];
+	?>
 
+	
 	<div id="proposal_13745" class="proposal clear " data-type="proposal">
  
   <div class="panel">
@@ -241,7 +225,6 @@ LIMIT $empezar_desde, $cantidad_resultados_por_pagina");
             <span class="label-proposal float-left">User <?php echo $variable1 ?></span>
             <p class="proposal-info">
              </br>
-              <span>NºComment: <?php echo $variable3 ?> --</span>
 			  <span>Date: <?php echo $datos['Fecha']?></span>
 
             </p>
@@ -271,24 +254,23 @@ $aux=$pagina-1;
 $aux2=$pagina+1; 
 
 echo "<li style='list-style:none;text-align: center;' center;=''>";
-if ($pagina<>1){ echo "<a rel=next href='?variable1=".$Propietario."&variable2=".$N_Prop."&pagina=".$aux."'>$aux <--Prev.Pag</a>";}
+if ($pagina<>1){ echo "<a rel=next href='?variable1=".$C_Pregunta."&variable2=".$IdPregunta."&pagina=".$aux."'>$aux <--Prev.Pag</a>";}
 echo "||";
-if ($pagina<>$total_paginas){echo "<a rel=next href='?variable1=".$Propietario."&variable2=".$N_Prop."&pagina=".$aux2."'> Next.Pag--> $aux2</a>";}
+if ($pagina<>$total_paginas){echo "<a rel=next href='?variable1=".$C_Pregunta."&variable2=".$IdPregunta."&pagina=".$aux2."'> Next.Pag--> $aux2</a>";}
 echo "</li>";
 }?>
 
     </nav>
   </div>
 		  </div>
-		  <p <?php if ($_SESSION['login']==0 or $Conf==0){ echo 'style="display:none;"'; } ?>>***This proposal is in the process of voting***</p>
-		  <div <?php if ($_SESSION['login']==0 or $Conf==1){ echo 'style="display:none;"'; } ?>>
-		<form class="in-favor" method="post" <?php if ($_SESSION['login']==0){ echo 'style="display:none;"'; } ?>>
-        <label for="comment">Comment</label>
-	    <textarea name="comment" rows="8" cols="40" placeholder="Escribe aqui tu comentario"></textarea>
-		<input type="hidden" name="prop" id="prop" value= <?php echo $_GET['variable1'];?> />
-		<input type="hidden" name="n_prop" id="n_prop" value= <?php echo $_GET['variable2'];?> />
+		  <div>
+		<form class="in-favor" method="post">
+        <label for="preg1">Respond</label>
+	    <textarea name="resp" rows="8" cols="40" placeholder="Escribe aqui tu Respuesta"></textarea>
+		<input type="hidden" name="preg" id="preg" value= <?php echo $_GET['variable1'];?> />
+		<input type="hidden" name="n_preg" id="n_prop" value= <?php echo $_GET['variable2'];?> />
 		<input type="hidden" name="num" id="num" value= "$total_registros" />
-		<input class="button button-support small expanded" title="Comentar esta Propuesta" value= "Comment" type="submit" name="comcom">
+		<input class="button button-support small expanded" title="Responder Pregunta" value= "Respond" type="submit" name="respreg">
 </input>  </form>
 		  </div>
         </main>
