@@ -199,7 +199,7 @@ LIMIT $empezar_desde, $cantidad_resultados_por_pagina");
 
 //Crea un bluce 'while' y define a la variable 'datos' ($datos) como clave del array
 //que mostrará los resultados por nombre
-Echo "<div style=background-color:green;color:white> You find $total_registros proposals with '$search'. </div>";
+Echo "<div style=background-color:green;color:white> You find $total_registros questions with '$search'. </div>";
 
 ?>
 <?php while($datos = mysql_fetch_array($consulta_resultados)){
