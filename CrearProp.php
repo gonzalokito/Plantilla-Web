@@ -7,7 +7,7 @@ if($_SESSION['logout']==1 or $_SESSION['login']<>1){header('Location: ./Main.php
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-    <title>Generar Propuesta</title>
+    <title>Generate Proposal</title>
     <link rel="stylesheet" media="screen" href="./css/application-53523c481b0762fedc07b8a19a71a8c4f5c06ebe0617a04e0a8b14e6861d4d2b.css">
 	<link rel="shortcut icon" type="image/x-icon" href="./css/icono.bmp">
     <link rel="apple-touch-icon" type="image/png" href="https://decide.madrid.es/assets/apple-touch-icon-200-6c25d8d55a31c81a0d22a208ac3d981d66bd93911a614a54e1116b8548a22e90.png" sizes="200x200">
@@ -41,11 +41,11 @@ if($_SESSION['logout']==1 or $_SESSION['login']<>1){header('Location: ./Main.php
     <div class="small-12 column">
 <label>User: <?php echo $_SESSION['usuario']; ?></label></br>
       <label for="title">Title</label>
-      <input autocomplete="off" maxlength="60" placeholder="Titulo de la propuesta" size="100" type="text" name="title" id="title">
+      <input autocomplete="off" maxlength="60" placeholder="Title" size="100" type="text" name="title" id="title">
       <label for="description">Description</label>
-	  <textarea name="description" rows="8" cols="40" placeholder="Escribe aqui la descripcion de tu propuesta"></textarea>
+	  <textarea name="description" rows="8" cols="40" placeholder="Write the description"></textarea>
 	  <label for="etiqueta">Tag</label>
-      <input autocomplete="off" maxlength="60" placeholder="Etiqueta" size="100" type="text" name="etiqueta" id="etiqueta">
+      <input autocomplete="off" maxlength="60" placeholder="Write your tag" size="100" type="text" name="etiqueta" id="etiqueta">
 	  <label for="lenguage">Language</label> 
         <select id="lenguage" name="lenguage">
             <option value="ESP" selected="selected">ESP</option>
@@ -58,7 +58,7 @@ if($_SESSION['logout']==1 or $_SESSION['login']<>1){header('Location: ./Main.php
       <br/>
       <P>Only extensions PDF, DOC or DOCX<P>
       <br/>
-      <input type="submit" name="commit3" value="Generar Propuesta" class="button expanded">
+      <input type="submit" name="commit3" value="Generate Proposal" class="button expanded">
     </div>
   </div>
 </form>

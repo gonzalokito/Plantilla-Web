@@ -156,7 +156,7 @@ $datos = mysql_fetch_array($consulta_resultados);
       <div class="row auth">
         <main>
           <div class="column small-centered panel padding margin-bottom">
-<div>Id Pregunta</div>            
+<div>Question Id</div>            
 <p><?php echo $datos['Id_Pregunta'];?></p>
 
 
@@ -167,7 +167,7 @@ $datos = mysql_fetch_array($consulta_resultados);
     <div class="small-12 column">
 	
 
-      <label for="description">Pregunta</label>
+      <label for="description">Question</label>
 	  <p><?php echo $datos['Cuerpo_Pregunta']; ?><p>
 
   <label for="etiqueta">Lenguage</label> 
@@ -266,7 +266,7 @@ echo "</li>";
 		  <div>
 		<form class="in-favor" method="post">
         <label for="preg1">Respond</label>
-	    <textarea name="resp" rows="8" cols="40" placeholder="Escribe aqui tu Respuesta"></textarea>
+	    <textarea name="resp" rows="8" cols="40" placeholder="Write here your response."></textarea>
 		<input type="hidden" name="preg" id="preg" value= <?php echo $_GET['variable1'];?> />
 		<input type="hidden" name="n_preg" id="n_prop" value= <?php echo $_GET['variable2'];?> />
 		<input type="hidden" name="num" id="num" value= "$total_registros" />

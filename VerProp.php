@@ -104,7 +104,7 @@ $Conf=$datos['Confirmacion'];
         <a accesskey="d" style="color:black" href="./Debates.php">Questions</a>
       </li>
     <li>
-      <a accesskey="p" style="color:black" href="./PropuestasCiudadanas.php">Proposals</a>
+      <a accesskey="p" style="color:blue" href="./PropuestasCiudadanas.php">Proposals</a>
     </li>
     <li>
       <a accesskey="v" style="color:black" href="./PropuestasCiudadanasV.php">Vote</a>
@@ -131,7 +131,7 @@ $Conf=$datos['Confirmacion'];
         <a accesskey="d" style="color:black" href="./Debates.php">Questions</a>
       </li>
     <li>
-      <a accesskey="p" style="color:black" href="./PropuestasCiudadanas.php">Proposals</a>
+      <a accesskey="p" style="color:blue" href="./PropuestasCiudadanas.php">Proposals</a>
     </li>
     <li>
       <a accesskey="v" style="color:black" href="./PropuestasCiudadanasV.php">Vote</a>
@@ -284,11 +284,11 @@ echo "</li>";
 		  <div <?php if ($_SESSION['login']==0 or $Conf==1){ echo 'style="display:none;"'; } ?>>
 		<form class="in-favor" method="post" <?php if ($_SESSION['login']==0){ echo 'style="display:none;"'; } ?>>
         <label for="comment">Comment</label>
-	    <textarea name="comment" rows="8" cols="40" placeholder="Escribe aqui tu comentario"></textarea>
+	    <textarea name="comment" rows="8" cols="40" placeholder="Write here your Comment."></textarea>
 		<input type="hidden" name="prop" id="prop" value= <?php echo $_GET['variable1'];?> />
 		<input type="hidden" name="n_prop" id="n_prop" value= <?php echo $_GET['variable2'];?> />
 		<input type="hidden" name="num" id="num" value= "$total_registros" />
-		<input class="button button-support small expanded" title="Comentar esta Propuesta" value= "Comment" type="submit" name="comcom">
+		<input class="button button-support small expanded" title="Comment this proposal" value= "Comment" type="submit" name="comcom">
 </input>  </form>
 		  </div>
         </main>

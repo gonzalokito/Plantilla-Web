@@ -39,7 +39,7 @@ session_start();//crea una sesión para ser usada mediante una petición GET o P
   <div class="row" >
     <div class="small-12 column">
       <label for="title">Question</label>
-      <textarea autocomplete="off" maxlength="250" rows="3" cols="40" placeholder="Pregunta" size="250" type="text" name="title" id="title"></textarea>
+      <textarea autocomplete="off" maxlength="250" rows="3" cols="40" placeholder="Write Question" size="250" type="text" name="title" id="title"></textarea>
       <label for="lenguage">Language</label> 
         <select id="lenguage" name="lenguage">
             <option value="ESP" selected="selected">ESP</option>
