@@ -114,7 +114,7 @@ $datos = mysql_fetch_array($consulta_resultados);
       <label for="description">Description</label>
 	  <textarea name="description" rows="8" cols="40"><?php echo $datos['Cuerpo_Propuesta']; ?></textarea>
 	  <label for="etiqueta">Tag</label>
-      <input autocomplete="off" maxlength="60" size="100" type="text" name="etiqueta" id="etiqueta" value="<?php echo $datos['Etiqueta'] ?>">
+      <input autocomplete="off" maxlength="60" size="100" type="text" value="<?php echo $datos['Etiqueta'] ?>" name="etiqueta" id="etiqueta"> 
 	  <label for="lenguage">Language: <?php echo $datos['Idioma'] ?></label>
         Change Lenguage </br>	  
         <select id="lenguage" name="lenguage">

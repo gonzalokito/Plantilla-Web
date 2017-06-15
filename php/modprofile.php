@@ -24,7 +24,7 @@ if (strlen($_POST['changeUser'])==0){echo "<div style=background-color:red;color
 			$sql3 = "UPDATE votos SET Propietario='$chg' WHERE Propietario='$prop'";
 			$sql4 = "UPDATE votos SET Usuario_Voto='$chg' WHERE Usuario_Voto='$prop'";
 			$sql5 = "UPDATE comentarios SET Usuario_Comentario='$chg' WHERE Usuario_Comentario='$prop'";
-			$sql6 = "UPDATE comentarios SET Propietario_Prop='$chg' WHERE Propietario_Prop='$prop'";
+			$sql6 = "UPDATE comentarios SET Propietario='$chg' WHERE Propietario='$prop'";
 			$rec = mysql_query($sql1);
 			$rec = mysql_query($sql2);
 			$rec = mysql_query($sql3);

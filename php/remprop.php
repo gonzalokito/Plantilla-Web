@@ -15,10 +15,10 @@ if(isset($_POST['rmvprop']))//para saber si el botón crear propuesta fue presion
 		WHERE Propietario='$username' and N_Propuesta='$n_prop'"; 
         $rec = mysql_query($sql2);
 		$sql3 = "DELETE FROM comentarios
-		WHERE Propietario_Prop='$username' and N_Prop='$n_prop'"; 
+		WHERE Propietario='$username' and N_Propuesta='$n_prop'"; 
         $rec = mysql_query($sql3);
 		echo("<script>alert('Proposal Removed!!')</script>");
-        echo("<script>window.location = '/.PropPerfil.php';</script>");
+        echo("<script>window.location = './PropPerfil.php';</script>");
         
 
 		}

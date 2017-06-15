@@ -201,7 +201,7 @@ $Conf=$datos['Confirmacion'];
 		  <?php
 include("php/comcom.php");
 $obtener_todo_BD = "SELECT * FROM comentarios 
-WHERE Propietario_Prop='$datos[Propietario]' AND N_Prop=$datos[N_Propuesta] 
+WHERE Propietario='$datos[Propietario]' AND N_Propuesta=$datos[N_Propuesta] 
 ORDER BY Fecha";
 
 //Realiza la consulta
@@ -218,7 +218,7 @@ $total_paginas = ceil($total_registros / $cantidad_resultados_por_pagina);
 //Limitada por la cantidad de cantidad por página
 $consulta_resultados = mysql_query("
 SELECT * FROM comentarios 
-WHERE Propietario_Prop='$datos[Propietario]' AND N_Prop=$datos[N_Propuesta] 
+WHERE Propietario='$datos[Propietario]' AND N_Propuesta=$datos[N_Propuesta] 
 ORDER BY Fecha
 LIMIT $empezar_desde, $cantidad_resultados_por_pagina");
 ?>
@@ -287,7 +287,7 @@ echo "</li>";
 	    <textarea name="comment" rows="8" cols="40" placeholder="Write here your Comment."></textarea>
 		<input type="hidden" name="prop" id="prop" value= <?php echo $_GET['variable1'];?> />
 		<input type="hidden" name="n_prop" id="n_prop" value= <?php echo $_GET['variable2'];?> />
-		<input type="hidden" name="num" id="num" value= "$total_registros" />
+		<input type="hidden" name="num" id="num" value= <?php echo $total_registros;?> />
 		<input class="button button-support small expanded" title="Comment this proposal" value= "Comment" type="submit" name="comcom">
 </input>  </form>
 		  </div>

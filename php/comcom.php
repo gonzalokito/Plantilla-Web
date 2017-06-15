@@ -12,7 +12,7 @@ if(isset($_POST['comcom']))//para saber si el botón crear propuesta fue presiona
 		$num_com = $_POST['num'] +1;
 
         $sql = "INSERT INTO comentarios 
-		(Ind_Comentario,Propietario_Prop,N_Prop,Usuario_Comentario,Comentario,Fecha)
+		(Ind_Comentario,Propietario,N_Propuesta,Usuario_Comentario,Comentario,Fecha)
 		VALUES ('$num_com', '$propietario', '$n_propuesta', '$username', '$comentario',CURRENT_TIMESTAMP)";
 		$sql2 = "UPDATE propuestas SET N_Comentarios = N_Comentarios+1 
 		WHERE Propietario = '$propietario' AND N_Propuesta = $n_propuesta;";

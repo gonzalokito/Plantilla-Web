@@ -12,7 +12,7 @@ if(isset($_POST['editprop']))//para saber si el botón crear propuesta fue presio
 		$etiqueta = $_POST['etiqueta'];
 		$lenguaje = $_POST['lenguage'];
 		$n_prop = $_POST['n_prop'];
-		if(strlen($etiqueta==0)){$etiqueta='Sin Etiqueta';}
+		if(strlen($etiqueta)==0){$etiqueta='Sin Etiqueta';}
 		if(strlen($title)<>0){
 			if(strlen($description)<>0){
         $sql = "UPDATE propuestas SET Cuerpo_Propuesta='$description',Titulo_Propuesta='$title',Etiqueta='$etiqueta',Idioma='$lenguaje' 
