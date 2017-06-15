@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 15-06-2017 a las 17:04:21
+-- Tiempo de generación: 15-06-2017 a las 17:18:57
 -- Versión del servidor: 10.1.16-MariaDB
 -- Versión de PHP: 5.6.24
 
@@ -155,7 +155,7 @@ CREATE TABLE `votos` (
 --
 
 INSERT INTO `votos` (`Usuario_Voto`, `Propietario`, `N_Propuesta`) VALUES
-('gonzalokito91', 'gonzalokito91', 5);
+('gonzalokito91', 'gonzalokito91', 1);
 
 --
 -- Índices para tablas volcadas
