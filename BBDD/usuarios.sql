@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 15-06-2017 a las 17:18:57
+-- Tiempo de generación: 16-06-2017 a las 17:17:19
 -- Versión del servidor: 10.1.16-MariaDB
 -- Versión de PHP: 5.6.24
 
@@ -40,9 +40,9 @@ CREATE TABLE `comentarios` (
 --
 
 INSERT INTO `comentarios` (`Ind_Comentario`, `Propietario`, `N_Propuesta`, `Usuario_Comentario`, `Comentario`, `Fecha`) VALUES
-(1, 'gonzalokito91', 5, 'gonzalokito91', 'Yo creo que no tiene ningÃºn sentido esta propuesta ya que poner velas podrÃ­a ser peligroso y ademas habrÃ­a que cambiarlas cada poco tiempo', '2017-06-15 14:29:56'),
-(1, 'gonzalokito91', 6, 'gonzalokito91', 'Una caca', '2017-06-15 14:33:16'),
-(2, 'gonzalokito91', 6, 'gonzalokito91', 'Yo creo que no es viable', '2017-06-15 14:33:23');
+(1, 'gonzalokito91', 1, 'gonzalokito91', 'Yo creo que no tiene ningÃºn sentido esta propuesta ya que poner velas podrÃ­a ser peligroso y ademas habrÃ­a que cambiarlas cada poco tiempo', '2017-06-15 14:29:56'),
+(1, 'gonzalokito91', 2, 'gonzalokito91', 'Una caca', '2017-06-15 14:33:16'),
+(2, 'gonzalokito91', 2, 'gonzalokito91', 'Yo creo que no es viable', '2017-06-15 14:33:23');
 
 -- --------------------------------------------------------
 
@@ -192,7 +192,7 @@ ALTER TABLE `preguntas`
 -- AUTO_INCREMENT de la tabla `propuestas`
 --
 ALTER TABLE `propuestas`
-  MODIFY `Id_Unico` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `Id_Unico` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
