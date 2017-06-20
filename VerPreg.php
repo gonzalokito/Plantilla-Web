@@ -42,7 +42,7 @@ $empezar_desde = ($pagina-1) * $cantidad_resultados_por_pagina;
     <title>Proposal </title>
     <link rel="stylesheet" media="screen" href="./css/application-53523c481b0762fedc07b8a19a71a8c4f5c06ebe0617a04e0a8b14e6861d4d2b.css">
 	<link rel="shortcut icon" type="image/x-icon" href="./css/icono.bmp">
-    <link rel="apple-touch-icon" type="image/png" href="https://decide.madrid.es/assets/apple-touch-icon-200-6c25d8d55a31c81a0d22a208ac3d981d66bd93911a614a54e1116b8548a22e90.png" sizes="200x200">
+    <link rel="apple-touch-icon" type="image/png" href="./css/icono.bmp" sizes="200x200">
     
 <meta class="foundation-mq">
 <?php $IdPregunta= $_GET['variable2']; $C_Pregunta= $_GET['variable1'];
@@ -287,10 +287,10 @@ echo "</li>";
     <div class="small-12 medium-8 column">
       <p>
         European Proyect, 2016&nbsp;|&nbsp;
-        <a href="./">More Information</a>&nbsp;|&nbsp;
-        <a href="./">Privacy Policy</a>&nbsp;|&nbsp;
+        <a href="./Construccion.html">More Information</a>&nbsp;|&nbsp;
+        <a href="./Construccion.html">Privacy Policy</a>&nbsp;|&nbsp;
         <a href="./CondicionesUSO.html">Terms of use</a>&nbsp;|&nbsp;
-        <a href="./Accesibilidad.html">Accessibility</a>
+        <a href="./Construccion.html">Accessibility</a>
       </p>
     </div>
 
@@ -324,7 +324,7 @@ echo "</li>";
   
       <div class="small-12 large-4 column">
       <h1 class="logo">
-        <a href="./decide%20Madrid.html">Open Proyect</a>
+        <a href="./Main.php">Open Proyect</a>
       </h1>
 
       <p class="info">

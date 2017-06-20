@@ -15,7 +15,7 @@ if(isset($_POST['commit3']))//para saber si el botón crear propuesta fue presion
 		$recprev = mysql_query($sqlprev);
 		$res = mysql_fetch_object($recprev);
 		$n_propuesta=$res ->N_Propuesta +1;
-		if(strlen($etiqueta==0)){$etiqueta='Sin Etiqueta';}
+		if(strlen($etiqueta)==0){$etiqueta='Sin Etiqueta';}
 		if(strlen($title)<>0){
 			if(strlen($description)<>0){
         $sql = "INSERT INTO propuestas 

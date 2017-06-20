@@ -57,8 +57,11 @@ include("php/logout.php");
 
         <div class="top-bar-right">
           <ul class="menu">
-            
   <li>
+  <a target="_blank" href="./Ayuda.html">Ayuda</a>
+  </li>   
+  <li>
+    
     <form <?php if ($_SESSION['login']==1){ echo 'style="display:none;"'; } ?> method="post" action="./Main.php" >
 	
 	<input style="color:blue;" type="submit" name="commit1" value="Log in">
@@ -72,12 +75,12 @@ include("php/logout.php");
 
 
   </li>
-
   <li>
-    <a <?php if ($_SESSION['login']==1){ echo 'style="display:none;"'; } ?> class="button" href="./Registrarse.php">Sign in</a>
+    
+	<a <?php if ($_SESSION['login']==1){ echo 'style="display:none;"'; } ?> class="button" href="./Registrarse.php">Sign in</a>
 	<a <?php if ($_SESSION['login']==0){ echo 'style="display:none;"'; } ?> href="./Perfil.php" style="font-size:larger;color:#242084;"><?php echo $_SESSION['usuario']; ?></a>
-
   </li>
+
 
           <div class="show-for-small-only">
             <div class="subnavigation row">

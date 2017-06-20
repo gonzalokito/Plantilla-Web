@@ -300,10 +300,10 @@ echo "</li>";
     <div class="small-12 medium-8 column">
       <p>
         European Proyect, 2016&nbsp;|&nbsp;
-        <a href="./">More Information</a>&nbsp;|&nbsp;
-        <a href="./">Privacy Policy</a>&nbsp;|&nbsp;
+        <a href="./Construccion.html">More Information</a>&nbsp;|&nbsp;
+        <a href="./Construccion.html">Privacy Policy</a>&nbsp;|&nbsp;
         <a href="./CondicionesUSO.html">Terms of use</a>&nbsp;|&nbsp;
-        <a href="./Accesibilidad.html">Accessibility</a>
+        <a href="./Construccion.html">Accessibility</a>
       </p>
     </div>
 
@@ -337,7 +337,7 @@ echo "</li>";
   
       <div class="small-12 large-4 column">
       <h1 class="logo">
-        <a href="./decide%20Madrid.html">Open Proyect</a>
+        <a href="./Main.php">Open Proyect</a>
       </h1>
 
       <p class="info">

@@ -8,7 +8,7 @@ $aux=0
     <title>Registrarse</title>
     <link rel="stylesheet" media="screen" href="./css/application-53523c481b0762fedc07b8a19a71a8c4f5c06ebe0617a04e0a8b14e6861d4d2b.css">
 	<link rel="shortcut icon" type="image/x-icon" href="./css/icono.bmp">
-    <link rel="apple-touch-icon" type="image/png" href="https://decide.madrid.es/assets/apple-touch-icon-200-6c25d8d55a31c81a0d22a208ac3d981d66bd93911a614a54e1116b8548a22e90.png" sizes="200x200">
+    <link rel="apple-touch-icon" type="image/png" href="./css/icono.bmp" sizes="200x200">
     
 
 <meta class="foundation-mq"></head>

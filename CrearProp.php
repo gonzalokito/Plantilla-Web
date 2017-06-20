@@ -32,14 +32,14 @@ if($_SESSION['logout']==1 or $_SESSION['login']<>1){header('Location: ./Main.php
             
 <h2>New Proposal</h2>
 
-<?php include("php/propuesta.php"); ?> <!-- registro.php -->
+<?php include("php/propuesta.php"); ?>
 
 
 <form  class="new_user" id="new_user" action="" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓">
 
   <div class="row" >
     <div class="small-12 column">
-<label>User: <?php echo $_SESSION['usuario']; ?></label></br>
+      <label>User: <?php echo $_SESSION['usuario']; ?></label></br>
       <label for="title">Title</label>
       <input autocomplete="off" maxlength="60" placeholder="Title" size="100" type="text" name="title" id="title">
       <label for="description">Description</label>
@@ -77,10 +77,10 @@ if($_SESSION['logout']==1 or $_SESSION['login']<>1){header('Location: ./Main.php
     <div class="small-12 medium-8 column">
       <p>
         European Proyect, 2016&nbsp;|&nbsp;
-        <a href="./">More Information</a>&nbsp;|&nbsp;
-        <a href="./">Privacy Policy</a>&nbsp;|&nbsp;
+        <a href="./Construccion.html">More Information</a>&nbsp;|&nbsp;
+        <a href="./Construccion.html">Privacy Policy</a>&nbsp;|&nbsp;
         <a href="./CondicionesUSO.html">Terms of use</a>&nbsp;|&nbsp;
-        <a href="./Accesibilidad.html">Accessibility</a>
+        <a href="./Construccion.html">Accessibility</a>
       </p>
     </div>
 
@@ -114,7 +114,7 @@ if($_SESSION['logout']==1 or $_SESSION['login']<>1){header('Location: ./Main.php
   
       <div class="small-12 large-4 column">
       <h1 class="logo">
-        <a href="./decide%20Madrid.html">Open Proyect</a>
+        <a href="./Main.php">Open Proyect</a>
       </h1>
 
       <p class="info">
