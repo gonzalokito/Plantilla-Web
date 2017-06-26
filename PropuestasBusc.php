@@ -188,7 +188,7 @@ $total_paginas = ceil($total_registros / $cantidad_resultados_por_pagina);
 //Realiza la consulta en el orden de ID ascendente (cambiar "id" por, por ejemplo, "nombre" o "edad", alfabéticamente, etc.)
 //Limitada por la cantidad de cantidad por página
 $consulta_resultados = mysql_query("
-SELECT Id_Unico,Titulo_Propuesta,Cuerpo_Propuesta,N_Comentarios,Propietario,N_Propuesta,Votos,Etiqueta,Idioma,Fecha_Creacion 
+SELECT Id_Unico,Titulo_Propuesta,Cuerpo_Propuesta,N_Comentarios,Propietario,N_Propuesta,Votos,Etiqueta,Idioma,Fecha_Creacion,Confirmacion 
 FROM propuestas WHERE Titulo_Propuesta LIKE '%$search%' 
 OR Cuerpo_Propuesta LIKE '%$search%' OR Propietario LIKE '%$search%' ORDER BY N_Comentarios DESC
 LIMIT $empezar_desde, $cantidad_resultados_por_pagina");
@@ -200,7 +200,8 @@ Echo "<div style=background-color:green;color:white> You find $total_registros p
 ?>
 <?php while($datos = mysql_fetch_array($consulta_resultados)){
 	$variable1=$datos['Propietario'];
-	$variable2=$datos['N_Propuesta'];?>
+	$variable2=$datos['N_Propuesta'];
+	$variable3=$datos['Confirmacion'];?>
 <div id="proposal_13745" class="proposal clear " data-type="proposal">
   <div class="panel">
     <div class="icon-successfull"></div>
@@ -245,7 +246,7 @@ Echo "<div style=background-color:green;color:white> You find $total_registros p
       <div id="proposal_13745_votes" class="small-12 medium-3 column">
           <div class="text-center">
             <div class="supports">
-
+<div <?php if ($variable3==0){ echo 'style="display:none;"'; } ?>>
     <span class="total-supports">
       <?php echo $datos['Votos'];?> Votes
     </span>
@@ -257,11 +258,12 @@ Echo "<div style=background-color:green;color:white> You find $total_registros p
 		<input type="hidden" name="Votar_Usuario3" value=<?php echo $datos['Votos'];?>>
 		<input class="button button-support small expanded" title="Apoyar esta propuesta" value= "Vote" type="submit" name="comvot">
 </input>  </form>
+</div>
   <div class="in-favor">
   <span class="total-supports">
       <?php echo $datos['N_Comentarios'];?> Comments
     </span>
-      <a <?php if ($_SESSION['login']==0){ echo 'style="display:none;"'; } ?> class="button button-support small expanded" title="Comentar esta propuesta" data-remote="true" href="./VerProp.php?variable1=<?php echo $variable1 ?>&variable2=<?php echo $variable2 ?>">
+      <a <?php if ($_SESSION['login']==0 or $variable3==1){ echo 'style="display:none;"'; } ?> class="button button-support small expanded" title="Comentar esta propuesta" data-remote="true" href="./VerProp.php?variable1=<?php echo $variable1 ?>&variable2=<?php echo $variable2 ?>">
 	  Comment
 </a> 
 </div>

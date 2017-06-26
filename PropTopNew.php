@@ -245,7 +245,7 @@ LIMIT $empezar_desde, $cantidad_resultados_por_pagina");
 
       <div id="proposal_13745_votes" class="small-12 medium-3 column">
           <div class="text-center">
-<div class="supports">
+            <div class="supports">
 <div <?php if ($variable3==0){ echo 'style="display:none;"'; } ?>>
     <span class="total-supports">
       <?php echo $datos['Votos'];?> Votes
@@ -259,7 +259,7 @@ LIMIT $empezar_desde, $cantidad_resultados_por_pagina");
 		<input class="button button-support small expanded" title="Apoyar esta propuesta" value= "Vote" type="submit" name="comvot">
 </input>  </form>
 </div>
-  <div  class="in-favor">
+  <div class="in-favor">
   <span class="total-supports">
       <?php echo $datos['N_Comentarios'];?> Comments
     </span>
