@@ -53,7 +53,7 @@ if($_SESSION['logout']==1 or $_SESSION['login']<>1){header('Location: ./Main.php
             <option value="FRE">FRE</option>
             <option value="DEU">DEU</option>
 	  <br/>
-	  <label for="archivo">Archivo:</label>
+	  <label for="archivo">Attach file</label>
       <input type="file" name="archivo" id="archivo" />
       <br/>
       <P>Only extensions PDF, DOC or DOCX<P>

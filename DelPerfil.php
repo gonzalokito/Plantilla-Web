@@ -71,7 +71,7 @@ if($_SESSION['login']==0){header('Location: ./Entrar.php');}
       <a  style="color:black" href="./Perfil.php">My Profile</a>
     </li>
     <li>
-      <a  style="color:black" class="active" style="background-color: #e7f2fc" href="./DelPerfil.php">Delete User</a>
+      <a  style="color:blue" class="active" style="background-color: #e7f2fc" href="./DelPerfil.php">Delete User</a>
     </li>
 		<li>
 	<a  style="background-color: grey" href="./Main.php">Exit Settings</a>
@@ -103,7 +103,7 @@ if($_SESSION['login']==0){header('Location: ./Entrar.php');}
       <a style="color:black" href="./Perfil.php">My Profile</a>
     </li>
     <li>
-      <a style="color:black" class="active" style="background-color: #e7f2fc" href="./DelPerfil.php">Delete User</a>
+      <a style="color:blue" class="active" style="background-color: #e7f2fc" href="./DelPerfil.php">Delete User</a>
     </li>
 		<li>
 	<a  style="background-color: grey" href="./Main.php">Exit Settings</a>

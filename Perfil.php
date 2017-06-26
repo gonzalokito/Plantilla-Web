@@ -70,7 +70,7 @@ if($_SESSION['login']==0){header('Location: ./Main.php');}
         <a  style="color:black" href="./PropPerfil.php">My Proposals</a>
       </li>
     <li>
-      <a style="color:black" class="active" style="background-color: #e7f2fc" href="./Perfil.php">My Profile</a>
+      <a style="color:blue" class="active" style="background-color: #e7f2fc" href="./Perfil.php">My Profile</a>
     </li>
     <li>
       <a  style="color:black" href="./DelPerfil.php">Delete User</a>
@@ -102,7 +102,7 @@ if($_SESSION['login']==0){header('Location: ./Main.php');}
         <a style="color:black" href="./PropPerfil.php">My Proposals</a>
       </li>
     <li>
-      <a style="color:black" class="active" style="background-color: #e7f2fc" href="./Perfil.php">My Profile</a>
+      <a style="color:blue" class="active" style="background-color: #e7f2fc" href="./Perfil.php">My Profile</a>
     </li>
     <li>
       <a style="color:black" href="./DelPerfil.php">Delete User</a>

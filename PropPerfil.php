@@ -96,7 +96,7 @@ $empezar_desde = ($pagina-1) * $cantidad_resultados_por_pagina;
   <ul>
   <section class="submenu">
       <li>
-        <a style="color:black" class="active" style="background-color: #e7f2fc" href="./PropPerfil.php">My Proposals</a>
+        <a style="color:blue" class="active" style="background-color: #e7f2fc" href="./PropPerfil.php">My Proposals</a>
       </li>
     <li>
       <a style="color:black" href="./Perfil.php">My Profile</a>
@@ -128,7 +128,7 @@ $empezar_desde = ($pagina-1) * $cantidad_resultados_por_pagina;
   <ul>
   <section >
       <li>
-        <a style="color:black" class="active" style="background-color: #e7f2fc" href="./PropPerfil.php">My Proposals</a>
+        <a style="color:blue" class="active" style="background-color: #e7f2fc" href="./PropPerfil.php">My Proposals</a>
       </li>
     <li>
       <a style="color:black" href="./Perfil.php">My Profile</a>

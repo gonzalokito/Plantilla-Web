@@ -5,7 +5,7 @@ $aux=0
 ?>
 <html lang="es" data-current-user-id="" class="turbolinks-progress-bar"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     
-    <title>Registrarse</title>
+    <title>Sign In</title>
     <link rel="stylesheet" media="screen" href="./css/application-53523c481b0762fedc07b8a19a71a8c4f5c06ebe0617a04e0a8b14e6861d4d2b.css">
 	<link rel="shortcut icon" type="image/x-icon" href="./css/icono.bmp">
     <link rel="apple-touch-icon" type="image/png" href="./css/icono.bmp" sizes="200x200">
@@ -28,13 +28,13 @@ $aux=0
         <main>
           <div class="small-12 medium-8 large-5 column small-centered panel padding margin-bottom">
             
-<h2>Registrarse</h2>
+<h2>Sign In</h2>
 
 <?php include("php/registro.php"); ?>
 
-      <a <?php if ($aux==1){ echo 'style="display:none;"'; } ?> class="button-twitter button expanded" href="./Construccion.html">Regístrate con Twitter</a>
+      <a <?php if ($aux==1){ echo 'style="display:none;"'; } ?> class="button-twitter button expanded" href="./Construccion.html">Sign In by Twitter</a>
 
-      <a <?php if ($aux==1){ echo 'style="display:none;"'; } ?> class="button-facebook button expanded" href="./Construccion.html">Regístrate con Facebook</a>
+      <a <?php if ($aux==1){ echo 'style="display:none;"'; } ?> class="button-facebook button expanded" href="./Construccion.html">Sign In by Facebook</a>
 
 
     <hr>
@@ -50,39 +50,38 @@ $aux=0
       <input type="hidden" name="user[use_redeemable_code]" id="user_use_redeemable_code">
       <input value="es" type="hidden" name="user[locale]" id="user_locale">
 
-      <label for="user_username">Nombre de usuario</label>
-      <p class="note">Nombre público que aparecerá en tus publicaciones</p>
-      <input maxlength="60" placeholder="Nombre de usuario" size="60" type="text" name="username" id="user_username">
+      <label for="user_username">Username</label>
+      <input maxlength="60" placeholder="Username of your publications" size="60" type="text" name="username" id="user_username">
 
       <div id="user_1476098925"><style type="text/css" media="screen" scoped="scoped">#user_1476098925 { display:none; }
 	  </style><label for="user_family_name">Si eres humano, por favor ignora este campo</label><input type="text" name="user_family_name" id="user_family_name"></div>
 
-      <label for="user_email">Correo electrónico</label>
-	  <input placeholder="Tu correo electrónico" type="email" value="" name="useremail" id="user_email">
+      <label for="user_email">Email</label>
+	  <input placeholder="Email" type="email" value="" name="useremail" id="user_email">
 
 
-      <label for="user_password">Contraseña</label>
-	  <input autocomplete="off" placeholder="Contraseña que utilizarás para acceder a este sitio web" type="password" name="userpassword" id="user_password">
+      <label for="user_password">Password</label>
+	  <input autocomplete="off" placeholder="Password of your account" type="password" name="userpassword" id="user_password">
 
-      <label for="user_password_confirmation">Repite la contraseña anterior</label>
-	  <input autocomplete="off" placeholder="Repite la contraseña anterior" type="password" name="userpasswordconf" id="user_password_confirmation">
+      <label for="user_password_confirmation">Repit Password</label>
+	  <input autocomplete="off" placeholder="Repit the password" type="password" name="userpasswordconf" id="user_password_confirmation">
 
 
       <label for="user_terms_of_service">
         <input name="terms_of_service" type="hidden" value="0">
 		<input title="Al registrarte aceptas las condiciones de uso" type="checkbox" value="1" name="terms_of_service" id="user_terms_of_service">
         <span class="checkbox">
-          Al registrarte aceptas las <a title=" (se abre en ventana nueva)" target="_blank" href="./CondicionesUso.html">condiciones de uso</a>
+          Accept the conditions <a title=" (New page open)" target="_blank" href="./CondicionesUso.html">of use</a>
         </span>
 </label>
-      <input type="submit" name="commit" value="Registrarse" class="button expanded">
+      <input type="submit" name="commit" value="Sing In" class="button expanded">
     </div>
   </div>
 </form>
 
 
 <div class="text-center">
-	  <a href="./Entrar.php">Entrar</a><br>
+	  <a href="./Entrar.php">Log In</a><br>
 </div>
 
           </div>
