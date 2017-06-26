@@ -335,6 +335,7 @@ echo "</li>";
 <p>
   <a href="./PropTopVot.php">Propuestas más apoyadas</a>
 </p>
+<p>If you want confirm your proposals click in your nickname in the top of the page. Next go to 'My Proposals' </p>
 
           <div class="sidebar-divider"></div>
 

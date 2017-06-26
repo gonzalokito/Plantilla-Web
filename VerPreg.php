@@ -222,7 +222,7 @@ LIMIT $empezar_desde, $cantidad_resultados_por_pagina");
       <div class="small-12 medium-9 column">
 	  
         <div class="proposal-content">
-            <span class="label-proposal float-left">User <?php echo $variable1 ?></span>
+            <span class="label-proposal float-left"> Anonymous user </span>
             <p class="proposal-info">
              </br>
 			  <span>Date: <?php echo $datos['Fecha']?></span>
@@ -269,9 +269,9 @@ echo "</li>";
 	    <textarea name="resp" rows="8" cols="40" placeholder="Write here your response."></textarea>
 		<input type="hidden" name="preg" id="preg" value= <?php echo $_GET['variable1'];?> />
 		<input type="hidden" name="n_preg" id="n_prop" value= <?php echo $_GET['variable2'];?> />
-		<input type="hidden" name="num" id="num" value= "$total_registros" />
 		<input class="button button-support small expanded" title="Responder Pregunta" value= "Respond" type="submit" name="respreg">
-</input>  </form>
+        </input>  
+		</form>
 		  </div>
         </main>
       </div>
