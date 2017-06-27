@@ -74,7 +74,7 @@ $aux=0
           Accept the conditions <a title=" (New page open)" target="_blank" href="./CondicionesUso.html">of use</a>
         </span>
 </label>
-      <input type="submit" name="commit" value="Sing In" class="button expanded">
+      <input type="submit" name="commit" value="Register" class="button expanded">
     </div>
   </div>
 </form>
