@@ -48,7 +48,7 @@ Return to main page
 
 
 <p <?php if ($_SESSION['login']==1 or $_SESSION['logout']==1 or $_SESSION['delprofile']==1){ echo 'style="display:none;"'; } ?> >
-  Don´t have an account? <a href="./Registrarse.php">Sign In</a>
+  Don´t have an account? <a href="./Registrarse.php">Register</a>
 </p>
 
 <form <?php if ($_SESSION['login']==1 or $_SESSION['logout']==1 or $_SESSION['delprofile']==1){ echo 'style="display:none;"'; } ?> class="new_user" id="new_user" action="./Entrar.php" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value="no60/1jELEEPhm8n2Lzf4kKk+Xcts6mMvAfR7iXjuBMrw1h+lefaYZkvRxryz99INcON//fVb0V/KX2HXRtLYQ==">

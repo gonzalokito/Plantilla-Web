@@ -64,12 +64,12 @@ include("php/logout.php");
     
     <form <?php if ($_SESSION['login']==1){ echo 'style="display:none;"'; } ?> method="post" action="./Entrar.php" >
 	
-	<input style="color:blue;" type="submit" name="commit1" value="Log in">
+	<input class="button" style="color:white;" type="submit" name="commit1" value="Log in">
 	
 	</form>
     <form <?php if ($_SESSION['login']==0){ echo 'style="display:none;"'; } ?> method="post" action="./Main.php" >
 	
-	<input style="color:blue;" type="submit" name="commit" value="Log out">
+	<input class="button" style="color:white;background-color:red" type="submit" name="commit" value="Log out">
 	
 	</form>
 
@@ -77,7 +77,7 @@ include("php/logout.php");
   </li>
   <li>
     
-	<a <?php if ($_SESSION['login']==1){ echo 'style="display:none;"'; } ?> class="button" href="./Registrarse.php">Sign in</a>
+	<a <?php if ($_SESSION['login']==1){ echo 'style="display:none;"'; } ?> class="button" href="./Registrarse.php">Register</a>
 	<a <?php if ($_SESSION['login']==0){ echo 'style="display:none;"'; } ?> href="./Perfil.php" style="font-size:larger;color:#242084;"><?php echo $_SESSION['usuario']; ?></a>
   </li>
 

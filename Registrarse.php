@@ -5,7 +5,7 @@ $aux=0
 ?>
 <html lang="es" data-current-user-id="" class="turbolinks-progress-bar"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     
-    <title>Sign In</title>
+    <title>Register</title>
     <link rel="stylesheet" media="screen" href="./css/application-53523c481b0762fedc07b8a19a71a8c4f5c06ebe0617a04e0a8b14e6861d4d2b.css">
 	<link rel="shortcut icon" type="image/x-icon" href="./css/icono.bmp">
     <link rel="apple-touch-icon" type="image/png" href="./css/icono.bmp" sizes="200x200">
@@ -28,13 +28,13 @@ $aux=0
         <main>
           <div class="small-12 medium-8 large-5 column small-centered panel padding margin-bottom">
             
-<h2>Sign In</h2>
+<h2>Register</h2>
 
 <?php include("php/registro.php"); ?>
 
-      <a <?php if ($aux==1){ echo 'style="display:none;"'; } ?> class="button-twitter button expanded" href="./Construccion.html">Sign In by Twitter</a>
+      <a <?php if ($aux==1){ echo 'style="display:none;"'; } ?> class="button-twitter button expanded" href="./Construccion.html">Register by Twitter</a>
 
-      <a <?php if ($aux==1){ echo 'style="display:none;"'; } ?> class="button-facebook button expanded" href="./Construccion.html">Sign In by Facebook</a>
+      <a <?php if ($aux==1){ echo 'style="display:none;"'; } ?> class="button-facebook button expanded" href="./Construccion.html">Register by Facebook</a>
 
 
     <hr>
