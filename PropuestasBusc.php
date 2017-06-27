@@ -2,7 +2,6 @@
 session_start();
 include_once "includes/conexion.php";  
 $cantidad_resultados_por_pagina = 10;
-
 //Comprueba si está seteado el GET de HTTP
 if (isset($_GET["pagina"])) {
 
@@ -252,12 +251,10 @@ Echo "<div style=background-color:green;color:white> You find $total_registros p
     </span>
 
   <form class="in-favor" method="post" <?php if ($_SESSION['login']==0){ echo 'style="display:none;"'; } ?>>
-
-        <input type="hidden" name="Votar_Usuario1" value=<?php echo $datos['Propietario'];?>>
-		<input type="hidden" name="Votar_Usuario2" value=<?php echo $datos['N_Propuesta'];?>>
-		<input type="hidden" name="Votar_Usuario3" value=<?php echo $datos['Votos'];?>>
-		<input class="button button-support small expanded" title="Apoyar esta propuesta" value= "Vote" type="submit" name="comvot">
-</input>  </form>
+        <div class="in-favor">
+		<a href="./VerProp.php?variable1=<?php echo $variable1 ?>&variable2=<?php echo $variable2 ?>" class="button button-support small expanded"> Vote </a>
+        </div>
+  </form>
 </div>
   <div class="in-favor">
   <span class="total-supports">

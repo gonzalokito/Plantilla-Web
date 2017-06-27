@@ -2,7 +2,8 @@
 session_start();
 include_once "includes/conexion.php";  
 $cantidad_resultados_por_pagina = 10;
-
+echo $search;
+echo $_GET["search"];
 //Comprueba si está seteado el GET de HTTP
 if (isset($_GET["pagina"])) {
 
